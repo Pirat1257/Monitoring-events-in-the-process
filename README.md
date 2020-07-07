@@ -13,16 +13,19 @@ Modern software development technologies
   - Программа должна обладать интерфейсом командной строки;
   - Программа должна предлагать следующие действия:
     -	–pid < Target_Process_PID> – целевой процесс выбирается по значению PID;
-    b.	–name <Target_Process_Name> – целевой процесс выбирается по имени;
-    c.	–func <Function_Name> – имя функции, вызов которой требуется отследить;
-    d.	–hide <File_Name> – имя файла, который надо скрыть от процесса;
+    -	–name <Target_Process_Name> – целевой процесс выбирается по имени;
+    -	–func <Function_Name> – имя функции, вызов которой требуется отследить;
+    -	–hide <File_Name> – имя файла, который надо скрыть от процесса;
   - Считается, что доступны следующие сценарии запуска программы:
-    a.	Monitor.exe –pid 123 –func CreateFile;
-    b.	Monitor.exe –name explorer.exe –func CreateFile;
-    c.	Monitor.exe –name explorer.exe –hide “C:\hello.txt”;
+    -	Monitor.exe –pid 123 –func CreateFile;
+    -	Monitor.exe –name explorer.exe –func CreateFile;
+    -	Monitor.exe –name explorer.exe –hide “C:\hello.txt”;
 
 Рекомендации: В качестве функции перехвата рекомендуется использовать библиотеку detours.
 
 Ресурсы:
-  - Исходные тексты: http://jacquelin.potier.free.fr/winapioverride32/;
-  - Теоритические сведения: http://www.codeproject.com/Articles/2082/API-hooking-revealed, Джеффри Рихтер: Windows via C/C++;
+  - Исходные тексты: 
+    - http://jacquelin.potier.free.fr/winapioverride32/;
+  - Теоритические сведения: 
+    - http://www.codeproject.com/Articles/2082/API-hooking-revealed;
+    - Джеффри Рихтер: Windows via C/C++;
