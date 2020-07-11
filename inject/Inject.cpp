@@ -6,7 +6,7 @@ bool Inject::inject_dll()
 	// Path to hook.dll
 	char DllPath[MAX_PATH] = { 0 };
 	GetModuleFileNameA(NULL, DllPath, MAX_PATH);
-	for (int i = strlen(DllPath); DllPath[i] != '\\'; i--)
+	for (size_t i = strlen(DllPath); DllPath[i] != '\\'; i--)
 		DllPath[i] = 0;
 	strcat_s(DllPath, "hook.dll");
 
@@ -99,7 +99,7 @@ void Inject::work_with_client()
 	if (func_hide == 0)
 	{
 		strcat_s(buff, "0"); // Номер операции заносится в конец
-		send(client_socket, buff, strlen(buff) + 1, 0); // Отправляем команду
+		send(client_socket, buff, int(strlen(buff)) + 1, 0); // Отправляем команду
 
 		while (1) // Необходимо принимать сообщения от клиента о вызовах функции
 		{
@@ -125,7 +125,7 @@ void Inject::work_with_client()
 	else
 	{
 		strcat_s(buff, "1"); // Номер операции заносится в конец
-		send(client_socket, buff, strlen(buff) + 1, 0); // Отправляем команду
+		send(client_socket, buff, int(strlen(buff)) + 1, 0); // Отправляем команду
 		size = recv(client_socket, buff, 512, 0); // Получаем информацию о выполнении операции
 		if (size > 0)
 			cout << buff << endl;
