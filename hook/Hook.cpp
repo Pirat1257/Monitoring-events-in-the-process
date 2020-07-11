@@ -23,7 +23,7 @@ void send_msg()
 		{
 			sprintf_s(timer, "%d-%02d-%02d %02d:%02d:%02d", time.wYear, time.wMonth,
 				time.wDay, time.wHour, time.wMinute, time.wSecond);
-			send(client_socket, buff_time, strlen(buff_time), 0);
+			send(client_socket, buff_time, int(strlen(buff_time)), 0);
 			memset(buff_time, 0, 512);
 		}
 		msg_ready = false;
@@ -73,8 +73,8 @@ int Hook::start()
 			return 0;
 		char buff[512] = { 0 };
 		// Приветствуем сервер
-		sprintf_s(buff, "HEY BRO, NICE DICK!");
-		send(client_socket, buff, strlen(buff) + 1, 0);
+		sprintf_s(buff, "The connection is established");
+		send(client_socket, buff, int(strlen(buff)) + 1, 0);
 		memset(buff, 0, 512);
 		// Принимаем запрос от него
 		recv(client_socket, buff, 512, 0); // Пример пакета: notepad.exe0
@@ -97,7 +97,7 @@ int Hook::start()
 			{
 				memset(buff, 0, 512);
 				sprintf_s(buff, "ERROR: DetourTransactionCommit");
-				send(client_socket, buff, strlen(buff) + 1, 0);
+				send(client_socket, buff, int(strlen(buff)) + 1, 0);
 				// Отправляем сообщение об ошибке и только потом закрываем
 				closesocket(client_socket);
 				WSACleanup();
@@ -125,7 +125,7 @@ int Hook::start()
 				sprintf_s(buff, "The file is not hidden");
 			}
 			// Сообщаем об удаче или же провале операции
-			send(client_socket, buff, strlen(buff) + 1, 0);
+			send(client_socket, buff, int(strlen(buff)) + 1, 0);
 			closesocket(client_socket);
 			WSACleanup();
 			return 1;
