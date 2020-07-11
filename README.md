@@ -29,3 +29,5 @@ Modern software development technologies
   - Теоритические сведения: 
     - http://www.codeproject.com/Articles/2082/API-hooking-revealed;
     - Джеффри Рихтер: Windows via C/C++;
+
+Ссылка на видео с частичным выполнением: https://drive.google.com/file/d/1gXBfXDDhIQEguJBnQ11Gq_bCCsVXD2S_/view?usp=sharing.
